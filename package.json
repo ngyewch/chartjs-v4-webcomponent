@@ -1,0 +1,43 @@
+{
+  "name": "@ngyewch/chartjs-v4-webcomponent",
+  "version": "0.1.0-alpha.1",
+  "description": "Chart.js v4 web component",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngyewch/chartjs-v4-webcomponent.git"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/chartjs-v4-webcomponent.es.js",
+      "require": "./dist/chartjs-v4-webcomponent.umd.js",
+      "script": "./dist/chartjs-v4-webcomponent.umd.js",
+      "types": "./dist/chartjs-v4-webcomponents.es.d.ts"
+    }
+  },
+  "module": "./dist/chartjs-v4-webcomponent.es.js",
+  "main": "./dist/chartjs-v4-webcomponent.umd.js",
+  "types": "./dist/chartjs-v4-webcomponents.es.d.ts",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "postbuild": "validate-package-exports --check",
+    "prepublishOnly": "validate-package-exports --check"
+  },
+  "devDependencies": {
+    "chart.js": "4.4.4",
+    "lit": "3.2.0",
+    "typescript": "5.5.4",
+    "validate-package-exports": "0.6.1",
+    "vite": "5.4.3",
+    "vite-plugin-dts": "4.1.1"
+  },
+  "dependencies": {
+  },
+  "files": [
+    "dist/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
