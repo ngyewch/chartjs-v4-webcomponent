@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Chart.js Web Component Example</title>
+    <script type="module" src="dist/chartjs-v4-webcomponent.es.js"></script>
+</head>
+<body>
+    <chartjs-v4>
+        <script type="application/json">
+            {
+                "type": "bar",
+                "data": {
+                    "labels": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul"
+                    ],
+                    "datasets": [
+                        {
+                            "label": "My First Dataset",
+                            "data": [
+                                65,
+                                59,
+                                80,
+                                81,
+                                56,
+                                55,
+                                40
+                            ]
+                        }
+                    ]
+                },
+                "options": {
+                    "maintainAspectRatio": false,
+                    "scales": {
+                        "y": {
+                            "beginAtZero": true
+                        }
+                    }
+                }
+            }
+        </script>
+    </chartjs-v4>
+</body>
+</html>
