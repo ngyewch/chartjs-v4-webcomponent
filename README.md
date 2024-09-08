@@ -12,12 +12,12 @@ Simple web component for displaying [Chart.js](https://www.chartjs.org/) v4 char
 
 Script tag:
 ```
-<script type="module" src="https://cdn.jsdelivr.net/npm/@ngyewch/chartjs-v4-webcomponent@0.1.0/dist/chartjs-v4-webcomponent.es.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ngyewch/chartjs-v4-webcomponent@0.2.0/dist/chartjs-v4-webcomponent.es.js"></script>
 ```
 
 Alternative:
 ```
-<script defer src="https://cdn.jsdelivr.net/npm/@ngyewch/chartjs-v4-webcomponent@0.1.0/dist/chartjs-v4-webcomponent.umd.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@ngyewch/chartjs-v4-webcomponent@0.2.0/dist/chartjs-v4-webcomponent.umd.js"></script>
 ```
 
 ### Markup
