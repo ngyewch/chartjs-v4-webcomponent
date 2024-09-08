@@ -4,6 +4,8 @@
 
 # chartjs-v4-webcomponent
 
+Simple web component for displaying [Chart.js](https://www.chartjs.org/) v4 charts.
+
 ## Usage
 
 ### Import
