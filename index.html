@@ -10,7 +10,7 @@
     -->
 </head>
 <body>
-    <chartjs-v4>
+    <chartjs-v4 id="test1">
         <script type="application/json">
             {
                 "type": "bar",
@@ -50,5 +50,30 @@
             }
         </script>
     </chartjs-v4>
+
+    <script>
+        setTimeout(() => {
+            const config = {
+                type: 'line',
+                data: {
+                    labels: [0, 1, 2],
+                    datasets: [{
+                        label: 'Series 1',
+                        data: [10, 30, 20],
+                    }],
+                },
+            };
+
+            const el = document.createElement('script');
+            el.type = 'application/json';
+            el.innerText = JSON.stringify(config);
+
+            const chartElement = document.getElementById('test1');
+            for (let i = chartElement.children.length - 1; i >= 0; i--) {
+                chartElement.removeChild(chartElement.children.item(i));
+            }
+            chartElement.appendChild(el);
+        }, 3000);
+    </script>
 </body>
 </html>
