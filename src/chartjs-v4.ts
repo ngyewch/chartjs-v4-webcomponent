@@ -1,5 +1,5 @@
-import {LitElement, html, css, type PropertyValues} from 'lit';
-import {customElement, query, queryAssignedNodes} from 'lit/decorators.js';
+import {LitElement, html, css} from 'lit';
+import {customElement, query, queryAssignedElements} from 'lit/decorators.js';
 import Chart, {type ChartConfiguration} from 'chart.js/auto';
 
 @customElement('chartjs-v4')
@@ -14,8 +14,10 @@ export class ChartJS4 extends LitElement {
     @query('#chart')
     private chartElement!: HTMLCanvasElement;
 
-    @queryAssignedNodes({slot: ''})
-    private contentNodes!: Array<Node>;
+    @queryAssignedElements({slot: ''})
+    private scriptElements!: Array<HTMLElement>;
+
+    private chart: Chart | undefined;
 
     protected render() {
         return html`
@@ -23,18 +25,38 @@ export class ChartJS4 extends LitElement {
                 <canvas id="chart"></canvas>
             </div>
             <div style="display: none;">
-                <slot></slot>
+                <slot @slotchange=${this.handleSlotChange}></slot>
             </div>
         `;
     }
 
-    protected firstUpdated(_changedProperties: PropertyValues) {
-        super.firstUpdated(_changedProperties);
+    private createChart(json: string): void {
+        if (this.chart !== undefined) {
+            this.chart.destroy();
+            this.chart = undefined;
+        }
+        try {
+            const chartConfig = JSON.parse(json) as ChartConfiguration;
+            this.chart = new Chart(this.chartElement, chartConfig);
+        } catch (e) {
+            console.error('chartjs-v4', this.id, e);
+        }
+    }
 
-        for (const node of this.contentNodes) {
-            if (node instanceof HTMLScriptElement) {
-                const scriptElement = node as HTMLScriptElement;
+    private handleSlotChange() {
+        if (this.scriptElements.length === 0) {
+            return;
+        }
+        let handled = false;
+        for (const element of this.scriptElements) {
+            if (element instanceof HTMLScriptElement) {
+                const scriptElement = element as HTMLScriptElement;
                 if (scriptElement.type === 'application/json') {
+                    if (handled) {
+                        console.warn('chartjs-v4', this.id, `additional configuration ignored`);
+                        continue;
+                    }
+                    handled = true;
                     if (scriptElement.src === '') {
                         this.createChart(scriptElement.innerText);
                     } else {
@@ -45,24 +67,18 @@ export class ChartJS4 extends LitElement {
                                 if (xhr.status === 200) {
                                     this.createChart(xhr.responseText);
                                 } else {
-                                    console.error('chartjs-v4', xhr.status, xhr.statusText);
+                                    console.error('chartjs-v4', this.id, xhr.status, xhr.statusText);
                                 }
                             }
                         };
                         xhr.send();
                     }
+                } else {
+                    console.warn('chartjs-v4', this.id, `unsupported script type: '${scriptElement.type}'`);
                 }
-                break;
+            } else {
+                console.warn('chartjs-v4', this.id, `unsupported element: ${element.tagName}`);
             }
-        }
-    }
-
-    private createChart(json: string): void {
-        try {
-            const chartConfig = JSON.parse(json) as ChartConfiguration;
-            new Chart(this.chartElement, chartConfig);
-        } catch (e) {
-            console.error('chartjs-v4', e);
         }
     }
 }
