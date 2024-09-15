@@ -14,15 +14,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/chartjs-v4-webcomponent.es.js",
-      "require": "./dist/chartjs-v4-webcomponent.umd.js",
-      "script": "./dist/chartjs-v4-webcomponent.umd.js",
-      "types": "./dist/chartjs-v4-webcomponents.es.d.ts"
+      "import": "./dist/chartjs-v4-webcomponent.js",
+      "types": "./dist/chartjs-v4-webcomponents.d.ts"
     }
   },
-  "module": "./dist/chartjs-v4-webcomponent.es.js",
-  "main": "./dist/chartjs-v4-webcomponent.umd.js",
-  "types": "./dist/chartjs-v4-webcomponents.es.d.ts",
+  "module": "./dist/chartjs-v4-webcomponent.js",
+  "types": "./dist/chartjs-v4-webcomponents.d.ts",
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "postbuild": "validate-package-exports --check",
