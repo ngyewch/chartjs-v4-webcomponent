@@ -2,6 +2,10 @@
   "name": "@ngyewch/chartjs-v4-webcomponent",
   "version": "0.2.0",
   "description": "Chart.js v4 web component",
+  "keywords": [
+    "chart.js",
+    "web-component"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
