@@ -16,3 +16,26 @@ tasks:
     deps: [ install ]
     cmds:
       - pnpm build
+
+  site-deploy:
+    desc: Deploy site
+    deps: [ site-build ]
+    cmds:
+      - gh-pages -d build/gh-pages --nojekyll
+
+  site-clean:
+    desc: Clean site
+    cmds:
+      - rm -rf build/gh-pages
+
+  site-build:
+    desc: Build site
+    cmds:
+      - task: site-clean
+      - mkdir -p build/gh-pages
+      - task: site-build-mdbook
+
+  site-build-mdbook:
+    desc: Generate mdbook
+    cmds:
+      - mdbook build --dest-dir $(pwd)/build/gh-pages docs/mdbook
