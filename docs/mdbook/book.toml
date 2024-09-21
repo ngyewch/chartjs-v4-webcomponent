@@ -1,0 +1,10 @@
+[book]
+authors = ["Nick Ng"]
+language = "en"
+multilingual = false
+title = "@ngyewch/chartjs-v4-webcomponent"
+
+[output.html]
+additional-css = ["custom.css"]
+git-repository-url = "https://github.com/ngyewch/chartjs-v4-webcomponent"
+site-url = "/chartjs-v4-webcomponent/"
