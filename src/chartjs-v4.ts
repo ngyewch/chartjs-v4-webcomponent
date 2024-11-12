@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, query, queryAssignedElements} from 'lit/decorators.js';
 import Chart, {type ChartConfiguration} from 'chart.js/auto';
+import 'chartjs-adapter-date-fns';
 
 @customElement('chartjs-v4')
 export class ChartJS4 extends LitElement {
