@@ -5,7 +5,7 @@
     <title>Chart.js Web Component Example</title>
     <script type="module" src="dist/chartjs-v4-webcomponent.js"></script>
     <!--
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@ngyewch/chartjs-v4-webcomponent@0.3.0/dist/chartjs-v4-webcomponent.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ngyewch/chartjs-v4-webcomponent@0.4.0/dist/chartjs-v4-webcomponent.js"></script>
     -->
 </head>
 <body>
@@ -14,17 +14,19 @@
             {
                 "type": "bar",
                 "data": {
-                    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
                     "datasets": [
                         {
                             "label": "My First Dataset",
-                            "data": [65, 59, 80, 81, 56, 55, 40]
+                            "data": [{"x": 0, "y": 1}, {"x": 1000, "y": 2}, {"x": 2000, "y": 3}]
                         }
                     ]
                 },
                 "options": {
                     "maintainAspectRatio": false,
                     "scales": {
+                        "x": {
+                            "type": "linear"
+                        },
                         "y": {
                             "beginAtZero": true
                         }
@@ -39,11 +41,27 @@
             const config = {
                 type: 'line',
                 data: {
-                    labels: [0, 1, 2],
                     datasets: [{
                         label: 'Series 1',
-                        data: [10, 30, 20],
+                        data: [{x: 0, y: 1}, {x: 1000, y: 2}, {x: 2000, y: 3}],
                     }],
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            type: "time",
+                            time: {
+                                unit: 'second',
+                                displayFormats: {
+                                    second: 's',
+                                },
+                            },
+                        },
+                        y: {
+                            beginAtZero: true,
+                        },
+                    }
                 },
             };
 
