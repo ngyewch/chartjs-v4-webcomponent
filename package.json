@@ -26,15 +26,15 @@
     "prepublishOnly": "validate-package-exports --check"
   },
   "devDependencies": {
-    "chart.js": "4.4.8",
+    "chart.js": "4.5.0",
     "chartjs-adapter-date-fns": "3.0.0",
     "date-fns": "4.1.0",
     "gh-pages": "6.3.0",
-    "lit": "3.2.1",
-    "typescript": "5.8.2",
-    "validate-package-exports": "0.8.0",
-    "vite": "6.2.1",
-    "vite-plugin-dts": "4.5.3"
+    "lit": "3.3.0",
+    "typescript": "5.8.3",
+    "validate-package-exports": "0.12.0",
+    "vite": "7.0.3",
+    "vite-plugin-dts": "4.5.4"
   },
   "dependencies": {
   },
