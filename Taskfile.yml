@@ -17,6 +17,13 @@ tasks:
     cmds:
       - pnpm build
 
+  outdated:
+    desc: Outdated
+    deps: [ install ]
+    aliases: [ dependencyUpdates ]
+    cmds:
+      - pnpm outdated
+
   site-deploy:
     desc: Deploy site
     deps: [ site-build ]
