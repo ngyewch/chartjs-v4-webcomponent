@@ -1,7 +1,6 @@
 [book]
 authors = ["Nick Ng"]
 language = "en"
-multilingual = false
 title = "@ngyewch/chartjs-v4-webcomponent"
 
 [output.html]
