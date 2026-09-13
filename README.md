@@ -1,6 +1,7 @@
 [![npm](https://img.shields.io/npm/v/@ngyewch/chartjs-v4-webcomponent)](https://www.npmjs.com/package/@ngyewch/chartjs-v4-webcomponent)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ngyewch/chartjs-v4-webcomponent/CI.yml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ngyewch/chartjs-v4-webcomponent)
+[![](https://data.jsdelivr.com/v1/package/npm/@ngyewch/chartjs-v4-webcomponent/badge)](https://www.jsdelivr.com/package/npm/@ngyewch/chartjs-v4-webcomponent)
 
 # chartjs-v4-webcomponent
 
