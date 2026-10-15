@@ -13,7 +13,7 @@ export default defineConfig({
     },
     plugins: [
         dts({
-            bundleTypes: true,
+            rollupTypes: true,
         }),
     ],
 });
