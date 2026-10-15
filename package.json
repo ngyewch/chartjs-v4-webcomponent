@@ -34,7 +34,7 @@
     "typescript": "6.0.3",
     "validate-package-exports": "1.5.1",
     "vite": "8.3.4",
-    "vite-plugin-dts": "4.5.4"
+    "vite-plugin-dts": "4.4.0"
   },
   "dependencies": {
   },
